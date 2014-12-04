@@ -42,6 +42,9 @@ public void onReceive(Context context, Intent intent) {
         }
         //---display the new SMS message---
         Toast.makeText(context, str, Toast.LENGTH_SHORT).show();}
+    	//@Mark: a "Toast" would be cool, but it won't do the complete job. It will only display for 
+    	//a short period, before disappearing. We want to display the text in its own screen/activity that we
+    	//can call from the main screen. 
     }
 }
     

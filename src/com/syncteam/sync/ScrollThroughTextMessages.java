@@ -17,24 +17,26 @@ import android.widget.ListView;
  *we can create an Array within the .java file for the received videos button
  *whenever anything resembling the right format comes through, it accepts it
  */
-public class ScrollThroughTextMessages (String message){
+public class ScrollThroughTextMessages {
 
 	//I think this will also be the broad casting file..... creating the instances...
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
-	        byte[] pdu = getIntent().getByteArrayExtra("smsPdu");
+	        byte[] pdusObj = getIntent().getByteArrayExtra("smsPdu");
 	        SmsMessage message = SmsMessage.createFromPdu(pdu);
 	}
 	
-	
-	
 	private ListView lv;
 	
-	String test = " "; //this is taking place of the incoming SMS message
+	String test = message.SMSReceiver2; //this is taking place of the incoming SMS message
 	
 	public void onCreate(Bundle saveInstanecState){
+		
+		
+		byte[] pdu = getIntent().getByteArrayExtra("smsPdu");
+        SmsMessage message = SmsMessage.createFromPdu(pdu);
 		setContentView(R.layout.layoutScrollThrough); //need to create this layout
 		
 		lv = (ListView)findViewById(R.id.your_list_view_id);
@@ -49,13 +51,14 @@ public class ScrollThroughTextMessages (String message){
 		
 		//while (SMS exists) //dont think I actually need a while loop, just a call to the receiver method
 		//{
-			Boolean truth;
-			truth = SMStest(test);
+			//Boolean truth;
+			//truth = SMStest(test);
 			
-			if (truth = true)//Sms message is in the right format - might want to call a seperate method here
-			{
+			//if (truth = true)//Sms message is in the right format - might want to call a seperate method here
+			//{
 				ParsetheText (test);
-			}
+				CheckIfRightFormat (parsedarray);
+			//}
 			
 		//}
 		
@@ -105,9 +108,13 @@ public class ScrollThroughTextMessages (String message){
 		String timeMinusExclamationPoint = Time.substring(0, Time.length() -1);
 		//System.out.println("URL = " + URL);
 		//System.out.println("Time = " + timeMinusExclamationPoint);
+		CheckIfValidURL();
 		return words;
+		
 	
 	}
+	
+	
 	
 	/*
 	 public Boolean SMStest (String message)//this is to test if it is a valid SMS message

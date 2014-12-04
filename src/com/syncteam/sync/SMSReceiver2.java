@@ -23,6 +23,8 @@ public class SMSReceiver2 extends BroadcastReceiver {
 		// Retrieves a map of extended data from the intent.
         final Bundle bundle = intent.getExtras();
  
+        
+        
         try 
         {
              
@@ -43,6 +45,7 @@ public class SMSReceiver2 extends BroadcastReceiver {
                     System.out.println(message);
                          
                 }
+            	
                 
 
               }
@@ -51,5 +54,21 @@ public class SMSReceiver2 extends BroadcastReceiver {
          { //don't worry about understanding this line or the next line
                 Log.e("SmsReceiver", "Exception smsReceiver" +e);
          }
+       
+        
+        //we added this code in our attempt to pass the textmessage to the "ScrollThroughTextMessages" class 
+        
+        /*
+        byte[] pdusObj = new byte[0]; //obviously use the real pdu in your app
+    	Intent intent = new Intent(this, ScrollThroughTextMessages.class);
+    	intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+    	intent.putExtra("smsPdu", pdusObj);
+        context.startActivity(intent);
+        */
 	}
+	
+
+	
+	
+	
 }
