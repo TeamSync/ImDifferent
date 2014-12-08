@@ -31,7 +31,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="top"
-        android:inputType="phone"  />
+        android:inputType="time"  />
     
 	<TextView
         android:id="@+id/youtubeLink"

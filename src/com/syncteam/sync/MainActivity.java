@@ -14,9 +14,14 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 	}
-	public void gotoActivity(View v)
+	public void gotoActivitySendVideos(View v)
 	{
-		Intent intent =  new Intent(this, TextSender.class);
+		Intent intent =  new Intent(this, SendVideos.class);
+		startActivity(intent);
+	}
+	public void gotoActivityViewVideos(View v)
+	{
+		Intent intent =  new Intent(this, ViewVideos.class);
 		startActivity(intent);
 	}
 }

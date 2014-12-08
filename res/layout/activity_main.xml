@@ -29,13 +29,16 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="40dp" 
         android:text="@string/send_video"
-        android:onClick="gotoActivity" />
+        android:onClick="gotoActivitySendVideos" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="@string/receive_video" />
+        android:text="@string/view_videos" 
+        android:onClick="gotoActivityViewVideos" />
+        
+        
 
 </LinearLayout>

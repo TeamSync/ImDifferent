@@ -3,8 +3,11 @@ package com.syncteam.sync;
 import com.syncteam.sync.R;
 
 import android.app.Activity;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.telephony.SmsManager;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -12,7 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class TextSender extends Activity {
+public class SendVideos extends Activity {
 
 	Button button;
 	EditText editPhoneNum;
@@ -22,8 +25,8 @@ public class TextSender extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.textsenderlayout);
-		
+		setContentView(R.layout.send_videos);
+
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 
 		button = (Button) findViewById(R.id.button);
@@ -31,6 +34,22 @@ public class TextSender extends Activity {
 		editWatchTime = (EditText) findViewById(R.id.editWatchTime);
 		editYouTubeLink= (EditText) findViewById(R.id.editYouTubeLink);
 
+		Cursor cursor = getContentResolver().query(Uri.parse("content://sms/inbox"), null, null, null, null);
+		cursor.moveToFirst();
+
+		String msgData = "";
+
+		
+		do{
+			for(int idx=0;idx<cursor.getColumnCount();idx++)
+			{
+				msgData += " " + cursor.getColumnName(idx) + ":" + cursor.getString(idx);
+			}
+		}while(cursor.moveToNext());
+
+		Log.d("test", msgData);
+		
+		
 		button.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -54,11 +73,11 @@ public class TextSender extends Activity {
 			}
 		});
 	}
-	
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		if (item.getItemId() == android.R.id.home) {
-		finish();	
+			finish();	
 		}
 		return super.onOptionsItemSelected(item);
 	}
