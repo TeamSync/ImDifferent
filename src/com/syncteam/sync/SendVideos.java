@@ -26,7 +26,6 @@ public class SendVideos extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.send_videos);
-
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 
 		button = (Button) findViewById(R.id.button);
@@ -39,16 +38,6 @@ public class SendVideos extends Activity {
 
 		String msgData = "";
 
-		
-		do{
-			for(int idx=0;idx<cursor.getColumnCount();idx++)
-			{
-				msgData += " " + cursor.getColumnName(idx) + ":" + cursor.getString(idx);
-			}
-		}while(cursor.moveToNext());
-
-		Log.d("test", msgData);
-		
 		
 		button.setOnClickListener(new OnClickListener() {
 

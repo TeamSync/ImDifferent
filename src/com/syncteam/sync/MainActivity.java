@@ -21,7 +21,7 @@ public class MainActivity extends Activity {
 	}
 	public void gotoActivityViewVideos(View v)
 	{
-		Intent intent =  new Intent(this, ViewVideos.class);
+		Intent intent = new Intent(this, ViewVideos.class);
 		startActivity(intent);
 	}
 }

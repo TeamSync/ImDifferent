@@ -7,5 +7,6 @@
     <string name="welcome">Welcome! </string>
     <string name="send_video">Send Video</string>
     <string name="view_videos">View Videos</string>
+    <string name="received_invites">Received Invites</string>
 
 </resources>

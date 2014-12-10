@@ -15,12 +15,12 @@ YouTubePlayer.OnInitializedListener {
 
 
 
-	static private final String DEVELOPER_KEY = "add your own key here!";
-	       static private final String VIDEO = "4SK0cUNMnMM";
+	static private final String DEVELOPER_KEY = "AIzaSyB69s6zBWbUAnz17MRvKltRRZ5h7O3Iddg";
+	       static private final String VIDEO = "Eo-KmOd3i7s";
 	       @Override
 	       protected void onCreate(Bundle savedInstanceState) {
 	              super.onCreate(savedInstanceState);
-	              setContentView(R.layout.activity_main);
+	              setContentView(R.layout.embed_youtube);
 	              YouTubePlayerView youTubeView = (YouTubePlayerView)
 	            		 findViewById(R.id.youtube_view);
 	           youTubeView.initialize(DEVELOPER_KEY, this);
